@@ -1,7 +1,10 @@
 const container = document.querySelector("div")
 
 
-function makeRows(rows, columns) {
+function makeGrid(rows, columns) {
+    while (document.querySelector('button') !== null) {
+        document.querySelector('button').remove()
+    }
     container.style.setProperty("--grid-rows", rows)
     container.style.setProperty("--grid-columns", columns)
     container.style.width = '960px'
@@ -16,22 +19,24 @@ function makeRows(rows, columns) {
         container.appendChild(square).className = 'grid-item'
         square.addEventListener('mouseover', () => {
             square.style.backgroundColor = 'black'
-           // console.log(square)
+            console.log(square)
         })
     }
-createButton():
+createButton()
 function createButton() {
     const buttonDiv = document.querySelector('#buttonDiv')
-    const resetButton = document.createElement('button'):
+    const resetButton = document.createElement('button')
     resetButton.textContent = 'Reset grid!'
     resetButton.style.margin = '20px'
-    buttonDiv.appendChild(resetButton):
-    resetButton.addEventListener('click', ( =>)
-    document.querySelectorAll('gridItem').forEach => e.remove())
-    let userGridInput = prompt('Please enter the number of grid squares per side (Max: 100): ')
-    if (userGridInput > 100) {
+    buttonDiv.appendChild(resetButton)
+
+    resetButton.addEventListener('click', () =>
+      document.querySelectorAll('.gridItem').forEach(e => e.remove())
+      let userGridInput = prompt('Please enter the number of grid squares per side (Max: 100): ')
+       if (userGridInput > 100) {
         alert('ERROR! You specified a grid size larger than the max of 100.')
-        return
+         return
+
     } 
     rows = userGridInput
     columns = userGridInput
